@@ -2,8 +2,24 @@
   "links": [
     {
       "name": "Layanan & Informasi",
-      "url": "https://drive.google.com/drive/folders/1MaRZo24M2gHJbOou7ZGoEjgIF4cYmVez?usp=drive_link",
-      "icon": "📋"
+      "icon": "📋",
+      "children": [
+        {
+          "name": "Permohonana Layanan & Informasi",
+          "url": "https://forms.gle/mxVU9qCPb8pqvSpQ6",
+          "icon": "📝"
+        },
+        {
+          "name": "Bahan Ajar Budidaya Ikan",
+          "url": "https://drive.google.com/drive/folders/11jDCzJKIQp7ctJXig9RR38wJUlQW_Gcy?usp=sharing",
+          "icon": "📂"
+        },
+         {
+          "name": "Dokumentasi Kegiatan",
+          "url": "https://drive.google.com/drive/folders/1sBJtsK3EJlXqAlSAjiqZlxTcFrg-0xRi?usp=sharing",
+          "icon": "📷"
+        }
+      ]
     },
     {
       "name": "Pendampingan & Pendataan",
@@ -49,3 +65,4 @@
     }
   ]
 }
+
