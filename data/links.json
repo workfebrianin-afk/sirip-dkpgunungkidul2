@@ -18,7 +18,7 @@
           "name": "Mini Tracker Layanan POSIKANDU",
           "url": "https://forms.gle/7KKAdo9k1Aod21RQA",
           "icon": "📝"
-        },  
+          ]  
     },
     {
       "name": "Media Sosial",
@@ -38,7 +38,7 @@
           "name": "Threads",
           "url": "https://threads.com/@dislautkan.gunungkidul/",
           "icon": "assets/threads.png"
-        },
+          ]
     },
     {
       "name": "Laman Resmi DKP Gunungkidul",
@@ -46,7 +46,7 @@
       "icon": "🌐"
     }
   ]
-
 }
+
 
 
