@@ -15,7 +15,7 @@
     }
 
     .sublinks-container.open {
-      max-height: 500px; /* cukup besar agar muat semua item */
+      max-height: 500px;
       padding-top: 0.5rem;
     }
 
@@ -77,17 +77,18 @@
           📍 Jl. Veteran No.3, Madusari, Wonosari, Kec. Wonosari, Kabupaten Gunungkidul, DIY
         </p>
         <p class="copyright">
-          © 2025 Dinas Kelautan dan Perikanan Kabupaten Gunungkidul
+          © 2024 Dinas Kelautan dan Perikanan Kabupaten Gunungkidul
         </p>
       </div>
     </footer>
   </div>
 
   <script>
-    // Load data dari JSON di root repo
+    // Load data dari JSON (pastikan file data.json sejajar dengan index.html)
     fetch('data.json')
       .then(res => res.json())
       .then(data => {
+        console.log("Data JSON terbaca:", data); // Debug
         const linksContainer = document.getElementById('linksContainer');
 
         function createLinkItem(link, isChild = false) {
