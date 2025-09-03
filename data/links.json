@@ -7,13 +7,38 @@
     },
     {
       "name": "Pendampingan & Pendataan",
-      "url": "https://drive.google.com/drive/folders/1MaRZo24M2gHJbOou7ZGoEjgIF4cYmVez?usp=drive_link",
       "icon": "📊"
+      "children": [
+        {
+          "name": "E-Logbook Pendampingan & Monitoring POKDAKAN",
+          "url": "https://forms.gle/8Cu9s8HhA5Bkx7PA8",
+          "icon": "📝"
+        },
+        {
+          "name": "Mini Tracker Layanan POSIKANDU",
+          "url": "https://forms.gle/7KKAdo9k1Aod21RQA",
+          "icon": "📝"
+        },  
     },
     {
       "name": "Media Sosial",
-      "url": "https://instagram.com/dislautkan.gunungkidul",
       "icon": "📱"
+      "children": [
+        {
+          "name": "Instagram",
+          "url": "https://instagram.com/dislautkan.gunungkidul",
+          "icon": "assets/instagram.webp"
+        },
+        {
+          "name": "TikTok",
+          "url": "https://www.tiktok.com/@dislautkan.gunungkidul",
+          "icon": "assets/tiktok.png"
+        },
+        {
+          "name": "Threads",
+          "url": "https://threads.com/@dislautkan.gunungkidul/",
+          "icon": "assets/threads.png"
+        },
     },
     {
       "name": "Laman Resmi DKP Gunungkidul",
@@ -23,4 +48,5 @@
   ]
 
 }
+
 
