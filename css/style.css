@@ -17,11 +17,27 @@ body {
 .container {
     max-width: 600px;
     margin: 0 auto;
-    background: white;
+    background: url("../img/background.png") no-repeat center center / cover;
     min-height: 100vh;
     box-shadow: 0 0 20px rgba(10, 90, 117, 0.1);
     position: relative;
     padding-bottom: 120px;
+    overflow: hidden; /* supaya overlay nggak bocor keluar */
+}
+
+/* Overlay transparan di atas gambar */
+.container::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(255, 255, 255, 0.75); /* bisa diganti jadi hitam 0.4 misalnya */
+    z-index: 0;
+}
+
+/* Pastikan konten tetap di atas overlay */
+.container > * {
+    position: relative;
+    z-index: 1;
 }
 
 /* Header Styles */
@@ -296,4 +312,5 @@ body {
     .link-text {
         font-size: 0.9rem;
     }
+
 }
