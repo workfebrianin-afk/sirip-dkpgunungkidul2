@@ -1,79 +1,158 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SIRIP - Dinas Kelautan dan Perikanan Gunungkidul</title>
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SIRIP - Dinas Kelautan dan Perikanan Gunungkidul</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Tambahan untuk animasi submenu */
+    .sublinks-container {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+      margin-left: 1.5rem;
+    }
+
+    .sublinks-container.open {
+      max-height: 500px; /* cukup besar agar muat semua item */
+      padding-top: 0.5rem;
+    }
+
+    .parent-link {
+      cursor: pointer;
+      background: #f3f4f6;
+      font-weight: 600;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .link-arrow {
+      margin-left: auto;
+      transition: transform 0.3s ease;
+    }
+
+    .parent-link.open .link-arrow {
+      transform: rotate(180deg);
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <header class="header">
-            <div class="logo-container">
-                <img src="assets/logo.png" alt="Logo DKP Gunungkidul" class="logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                <div class="logo-placeholder">
-                    <div class="logo-icon">🏛️</div>
-                    <span>Logo</span>
-                </div>
-            </div>
-            
-            <div class="header-content">
-                <h1 class="main-title">SIRIP</h1>
-                <p class="subtitle">Sistem Informasi Rekapitulasi dan Pencatatan Usaha Perikanan</p>
-                <h2 class="department">Dinas Kelautan dan Perikanan</h2>
-                <h3 class="region">Kabupaten Gunungkidul</h3>
-            </div>
-        </header>
+  <div class="container">
+    <header class="header">
+      <div class="logo-container">
+        <img src="assets/logo.png" alt="Logo DKP Gunungkidul" class="logo"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="logo-placeholder">
+          <div class="logo-icon">🏛️</div>
+          <span>Logo</span>
+        </div>
+      </div>
+      
+      <div class="header-content">
+        <h1 class="main-title">SIRIP</h1>
+        <p class="subtitle">Sistem Informasi Rekapitulasi dan Pencatatan Usaha Perikanan</p>
+        <h2 class="department">Dinas Kelautan dan Perikanan</h2>
+        <h3 class="region">Kabupaten Gunungkidul</h3>
+      </div>
+    </header>
 
-        <main class="main-content">
-            <div class="links-container" id="linksContainer">
-                <!-- Links akan dimuat dari JSON -->
-            </div>
-        </main>
+    <main class="main-content">
+      <div class="links-container" id="linksContainer">
+        <!-- Links akan dimuat dari JSON -->
+      </div>
+    </main>
 
-        <footer class="footer">
-            <div class="footer-content">
-                <p class="address">
-                    📍 Jl. Veteran No.3, Madusari, Wonosari, Kec. Wonosari, Kabupaten Gunungkidul, DIY
-                </p>
-                <p class="copyright">
-                    © 2024 Dinas Kelautan dan Perikanan Kabupaten Gunungkidul
-                </p>
-            </div>
-        </footer>
-    </div>
+    <footer class="footer">
+      <div class="footer-content">
+        <p class="address">
+          📍 Jl. Veteran No.3, Madusari, Wonosari, Kec. Wonosari, Kabupaten Gunungkidul, DIY
+        </p>
+        <p class="copyright">
+          © 2024 Dinas Kelautan dan Perikanan Kabupaten Gunungkidul
+        </p>
+      </div>
+    </footer>
+  </div>
 
-    <script>
-        // Load data dari JSON
-        fetch('data/links.json')
-            .then(response => response.json())
-            .then(data => {
-                const container = document.getElementById('linksContainer');
-                
-                data.links.forEach(link => {
-                    const linkElement = document.createElement('a');
-                    linkElement.href = link.url;
-                    linkElement.className = 'link-item';
-                    linkElement.target = '_blank';
-                    
-                    linkElement.innerHTML = `
-                        <div class="link-icon">${link.icon}</div>
-                        <span class="link-text">${link.name}</span>
-                        <div class="link-arrow">→</div>
-                    `;
-                    
-                    container.appendChild(linkElement);
-                });
-            })
-            .catch(error => {
-                console.error('Error loading links:', error);
-                // Fallback jika JSON gagal dimuat
-                document.getElementById('linksContainer').innerHTML = `
-                    <div class="error-message">
-                        <p>Maaf, terjadi kesalahan saat memuat data. Silakan hubungi administrator.</p>
-                    </div>
-                `;
+  <script>
+    // Load data dari JSON
+    fetch('data/link.json')
+      .then(res => res.json())
+      .then(data => {
+        const linksContainer = document.getElementById('linksContainer');
+
+        function createLinkItem(link, isChild = false) {
+          const a = document.createElement('a');
+          a.href = link.url || "#";
+          a.className = 'link-item' + (isChild ? ' sublink' : '');
+          if (link.url) a.target = '_blank';
+
+          let iconHTML;
+          if (/\.(png|jpg|jpeg|svg|webp)$/i.test(link.icon)) {
+            iconHTML = `<img src="${link.icon}" alt="${link.name}" class="link-icon-img">`;
+          } else {
+            iconHTML = `<span class="link-icon">${link.icon}</span>`;
+          }
+
+          a.innerHTML = `
+            ${iconHTML}
+            <span class="link-text">${link.name}</span>
+            ${isChild ? '<span class="link-arrow">›</span>' : ''}
+          `;
+
+          return a;
+        }
+
+        data.links.forEach(link => {
+          if (link.children) {
+            // parent item
+            const div = document.createElement('div');
+            div.className = 'link-item parent-link';
+
+            let iconHTML;
+            if (/\.(png|jpg|jpeg|svg|webp)$/i.test(link.icon)) {
+              iconHTML = `<img src="${link.icon}" alt="${link.name}" class="link-icon-img">`;
+            } else {
+              iconHTML = `<span class="link-icon">${link.icon}</span>`;
+            }
+
+            div.innerHTML = `
+              ${iconHTML}
+              <span class="link-text">${link.name}</span>
+              <span class="link-arrow">▼</span>
+            `;
+
+            // container submenu
+            const subLinks = document.createElement('div');
+            subLinks.className = 'sublinks-container';
+
+            link.children.forEach(child => {
+              subLinks.appendChild(createLinkItem(child, true));
             });
-    </script>
+
+            // toggle submenu
+            div.addEventListener('click', () => {
+              div.classList.toggle('open');
+              subLinks.classList.toggle('open');
+            });
+
+            linksContainer.appendChild(div);
+            linksContainer.appendChild(subLinks);
+          } else {
+            linksContainer.appendChild(createLinkItem(link));
+          }
+        });
+      })
+      .catch(error => {
+        console.error('Error loading links:', error);
+        document.getElementById('linksContainer').innerHTML = `
+          <div class="error-message">
+            <p>Maaf, terjadi kesalahan saat memuat data. Silakan hubungi administrator.</p>
+          </div>
+        `;
+      });
+  </script>
 </body>
 </html>
