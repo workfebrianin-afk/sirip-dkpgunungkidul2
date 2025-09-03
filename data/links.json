@@ -5,7 +5,7 @@
       "icon": "📋",
       "children": [
         {
-          "name": "Permohonana Layanan & Informasi",
+          "name": "Permohonan Layanan & Informasi",
           "url": "https://forms.gle/mxVU9qCPb8pqvSpQ6",
           "icon": "📝"
         },
@@ -33,7 +33,7 @@
         {
           "name": "Mini Tracker Layanan POSIKANDU",
           "url": "https://forms.gle/7KKAdo9k1Aod21RQA",
-          "icon": "📝"
+          "icon": "💻"
         }
       ]
     },
@@ -65,4 +65,5 @@
     }
   ]
 }
+
 
