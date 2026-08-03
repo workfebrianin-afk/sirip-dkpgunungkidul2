@@ -1,6 +1,22 @@
 {
   "links": [
     {
+      "name": "Proposal Bantuan",
+      "icon": "📌",
+      "children": [
+         {
+          "name": "Proposal Bantuan Benih & Calon Induk Aspirasi",
+          "url": "https://drive.google.com/drive/folders/1RbOQ-1mrkopLKzs89PMO30wAjj3F3-SR",
+          "icon": "🐟"
+        },
+        {
+          "name": "Proposal Bantuan Budidaya Tematik",
+          "url": "https://drive.google.com/drive/folders/12SUQJgYOjnY1hiM_JCY33LwVTn9acZyT",
+          "icon": "🏞️"
+        }
+      ]
+    },
+    {
       "name": "Layanan & Informasi",
       "icon": "📋",
       "children": [
