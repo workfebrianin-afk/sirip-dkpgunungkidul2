@@ -21,9 +21,14 @@
       "icon": "📋",
       "children": [
          {
-          "name": "Permohonan Layanan & Informasi",
+          "name": "Permohonan Layanan & Informasi DKP",
           "url": "https://forms.gle/mxVU9qCPb8pqvSpQ6",
           "icon": "📝"
+        },
+        {
+          "name": "Formulir/Template Permohonan Layanan Posikandu",
+          "url": "https://form.jotform.com/262698950996078",
+          "icon": "🧪"
         },
         {
           "name": "Bahan Ajar Budidaya Ikan",
